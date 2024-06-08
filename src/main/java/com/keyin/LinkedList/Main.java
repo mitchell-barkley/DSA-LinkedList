@@ -7,9 +7,17 @@ public class Main {
         singleLinkedList.insertInLinkedList(2, 1);
         singleLinkedList.insertInLinkedList(3, 2);
         singleLinkedList.insertInLinkedList(4, 3);
-//        singleLinkedList.insertInLinkedList(5, 1);
+        singleLinkedList.insertInLinkedList(5, 4);
         singleLinkedList.traverseLinkedList();
         singleLinkedList.searchNode(4);
+        singleLinkedList.deleteAtBeginning();
+        singleLinkedList.traverseLinkedList();
+        singleLinkedList.deleteAtEnd();
+        singleLinkedList.traverseLinkedList();
+        singleLinkedList.deleteAtLocation(2);
+        singleLinkedList.traverseLinkedList();
+        singleLinkedList.deleteLinkedList();
+        singleLinkedList.traverseLinkedList();
     }
 }
 

@@ -5,7 +5,7 @@ public class SingleLinkedList {
     public Node tail;
     public int size;
 
-    // Cretae a linked List
+    // Create a linked List
     public Node createLinkedList(int nodeValue){
         head = new Node();
         Node node = new Node();
@@ -18,8 +18,8 @@ public class SingleLinkedList {
     }
 
     //insert into a linked list
-    //0. If link list doesn't
-    //1. inserting at the begining
+    //0. If link list doesn't exist
+    //1. inserting at the beginning
     //2. Inserting at the ending
     //3. Insert anywhere
     public void insertInLinkedList(int nodeValue, int location){
@@ -82,11 +82,84 @@ public class SingleLinkedList {
         return false;
     }
 
-
     //Deleting a Node from a Single linked List
-    //0. If link list doesn't
+    //0. If link list doesn't exist
+    public Node deleteLinkedList(){
+        Node tempNode = head;
+        if (head == null) {
+            System.out.println("SLL does not exist");
+            return null;
+        } else {
+            head = null;
+            tail = null;
+            System.out.println("SLL deleted");
+        }
+        return tempNode;
+    }
+
     //1. deleting at the begining
+    public void deleteAtBeginning(){
+        if (head == null) {
+            System.out.println("SLL does not exist");
+            return;
+        } else {
+            head = head.next;
+            size--;
+            System.out.println("Node deleted from the beginning");
+        }
+    }
+
     //2. deleting at the ending
+    public Node deleteAtEnd(){
+        if (head == null) {
+            System.out.println("SLL does not exist");
+            return null;
+        } else {
+            Node tempNode = head;
+            for (int i = 0; i < size - 1; i++){
+                tempNode = tempNode.next;
+            }
+            tempNode.next = null;
+            tail = tempNode;
+            size--;
+            System.out.println("Node deleted from the end");
+            return tempNode;
+        }
+    }
+
     //3. deleting anywhere in the list
+    public void deleteAtLocation(int location){
+        if (head == null) {
+            System.out.println("SLL does not exist");
+            return;
+        } else if (location == 0) {
+            head = head.next;
+            size--;
+            System.out.println("Node deleted from the beginning");
+        } else if (location >= size) {
+            Node tempNode = head;
+            for (int i = 0; i < size - 1; i++){
+                tempNode = tempNode.next;
+            }
+            if (tempNode == head) {
+                head = null;
+                tail = null;
+                size--;
+                System.out.println("Node deleted from the end");
+                return;
+            }
+            tempNode.next = null;
+            tail = tempNode;
+            size--;
+        } else {
+            Node tempNode = head;
+            for (int i = 0; i < location - 1; i++){
+                tempNode = tempNode.next;
+            }
+            tempNode.next = tempNode.next.next;
+            size--;
+            System.out.println("Node deleted from location: " + location);
+        }
+    }
 
 }
