@@ -22,6 +22,7 @@ public class Main {
 }
 
 
+
 //Assignment question number
 //1. Uncomment line 10 "singleLinkedList.insertInLinkedList(5, 1)" and Investigate and fix
 // why when inserting a value at a position that is already occupied, it throws a null pointer exception.
